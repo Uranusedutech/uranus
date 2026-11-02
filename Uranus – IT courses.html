@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Uranus – IT courses</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;500;700&family=Manrope:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--void:#02070b;--abyss:#06161b;--glow:#3fd8d8;--cyan:#b8f6f6;--frost:#e8fbfb;--slate:#7c9aa1;--line:rgba(120,230,230,.18);--head:"Sora","Trebuchet MS",sans-serif;--body:"Manrope","Segoe UI",Arial,sans-serif;color-scheme:dark;box-sizing:border-box}
+*,*::before,*::after{box-sizing:inherit}
+html{scroll-behavior:smooth;scroll-padding-top:80px;background:var(--void)}
+body{margin:0;background:var(--void);color:var(--frost);font:400 17px/1.65 var(--body);overflow-x:hidden;padding-bottom:env(safe-area-inset-bottom,0px)}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--glow);outline-offset:3px;border-radius:8px}
+.wrap{max-width:1120px;margin:0 auto;padding:0 24px;position:relative}
+header.bar{position:fixed;top:0;left:0;right:0;z-index:20;padding-top:env(safe-area-inset-top,0px);background:rgba(2,7,11,.55);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+header.bar .wrap{display:flex;justify-content:space-between;align-items:center;height:64px}
+.logo{font:700 22px var(--head);letter-spacing:.04em;text-decoration:none;display:flex;gap:10px;align-items:center}
+.logo i{width:18px;height:18px;border-radius:50%;background:radial-gradient(circle at 70% 30%,#d9ffff,#1fa9ae 55%,#06353f);box-shadow:0 0 14px rgba(63,216,216,.7)}
+.bar ul{display:flex;gap:28px;list-style:none;margin:0;padding:0}
+.bar ul a{text-decoration:none;color:var(--slate);font-weight:500;font-size:15px}
+.bar ul a:hover{color:var(--frost)}
+.cta{padding:10px 20px;border-radius:999px;background:var(--glow);color:#02262a;font:600 15px var(--body);text-decoration:none}
+.hero{position:relative;min-height:100svh;overflow:hidden;display:flex;align-items:center;isolation:isolate}
+.hero::before{content:"";position:absolute;inset:0;z-index:-3;background:radial-gradient(1.2px 1.2px at 8% 18%,#fff9,transparent),radial-gradient(1px 1px at 22% 62%,#fff8,transparent),radial-gradient(1.4px 1.4px at 38% 12%,#fff,transparent),radial-gradient(1px 1px at 47% 78%,#fff7,transparent),radial-gradient(1px 1px at 63% 8%,#fff8,transparent),radial-gradient(1.2px 1.2px at 71% 88%,#fff9,transparent),radial-gradient(1px 1px at 93% 55%,#fff8,transparent),radial-gradient(1px 1px at 15% 90%,#fff6,transparent),#02070b}
+.planet{position:absolute;z-index:-2;width:clamp(520px,92vmin,980px);aspect-ratio:1;right:-14vmin;top:-12vmin;border-radius:50%;background:repeating-linear-gradient(-14deg,rgba(255,255,255,.05) 0 26px,rgba(0,40,50,.06) 26px 60px),radial-gradient(circle at 80% 28%,#b4fbf8 0%,#5ee6e4 14%,#25b4bd 34%,#0e6f7c 56%,#052a33 78%,#01090d 100%);box-shadow:0 0 120px rgba(63,216,216,.28),inset 14px -10px 50px rgba(190,255,255,.55),inset -90px 60px 140px rgba(0,0,0,.6)}
+#fx{position:absolute;inset:0;z-index:-1;width:100%;height:100%;pointer-events:none}
+.terrain{position:absolute;left:0;right:0;bottom:-1px;width:100%;height:32vh;min-height:170px;z-index:0;pointer-events:none}
+.hero .wrap{width:100%;padding-top:96px;padding-bottom:20vh}
+h1{font:300 clamp(40px,6.4vw,82px)/1.04 var(--head);letter-spacing:-.02em;margin:0 0 22px;max-width:11em}
+h1 b{font-weight:700}
+.lead{max-width:31em;color:#b2d0d4;font-size:19px;margin:0 0 32px}
+.btns{display:flex;flex-wrap:wrap;gap:12px}
+.btn{display:inline-block;padding:14px 26px;border-radius:999px;font:600 16px var(--body);text-decoration:none;border:1.5px solid transparent;cursor:pointer}
+.btn.p{background:var(--glow);color:#02262a}.btn.wa{background:#25d366;color:#04210f}.btn.o{border-color:rgba(184,246,246,.4);color:var(--frost);background:rgba(2,7,11,.35)}
+.btn:hover{filter:brightness(1.12)}
+.in{animation:in 1s both}.in2{animation-delay:.15s}.in3{animation-delay:.3s}
+@keyframes in{from{opacity:0;transform:translateY(16px)}}
+section{padding:92px 0;position:relative}
+h2{font:300 clamp(30px,4.4vw,46px)/1.12 var(--head);letter-spacing:-.01em;margin:0 0 14px}
+h2 b{font-weight:700}
+.sub{color:var(--slate);max-width:36em;margin:0 0 44px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:20px}
+.panel{border-radius:26px;border:1px solid var(--line);padding:clamp(24px,5vw,52px);background:radial-gradient(ellipse at 90% 0%,rgba(63,216,216,.18),transparent 60%),var(--abyss)}
+.row{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px;margin:28px 0}
+.full{grid-column:1/-1}
+label{display:block;font-weight:600;font-size:15px;margin-bottom:6px}
+input,select,textarea{width:100%;padding:13px 15px;border-radius:12px;border:1.5px solid rgba(120,230,230,.25);background:rgba(2,7,11,.7);color:var(--frost);font:400 16px var(--body)}
+textarea{min-height:110px;resize:vertical}
+.direct{margin:22px 0 0;color:var(--slate);font-size:15px}
+footer{padding:36px 0 56px;text-align:center;color:var(--slate);font-size:15px;border-top:1px solid var(--line)}
+.fab{position:fixed;right:18px;bottom:calc(18px + env(safe-area-inset-bottom,0px));z-index:30;width:56px;height:56px;border-radius:50%;background:#25d366;display:grid;place-items:center;box-shadow:0 8px 28px rgba(0,0,0,.5)}
+.fab svg{width:30px;height:30px;fill:#04210f}
+@media(max-width:760px){.bar ul{display:none}.planet{right:-40vmin;top:-6vmin}.hero .wrap{padding-bottom:26vh}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important}html{scroll-behavior:auto}}
+.bar ul{align-items:center}
+.dd{position:relative}.dd>div{display:none;position:absolute;top:100%;left:-16px;min-width:270px;padding:10px;margin-top:8px;border-radius:14px;border:1px solid var(--line);background:rgba(4,16,22,.97)}
+.dd:hover>div,.dd:focus-within>div{display:block}.dd>div a{display:block;padding:9px 12px;border-radius:8px;color:var(--frost)!important}.dd>div a:hover{background:rgba(63,216,216,.12)}
+.cta{border:1.5px solid var(--glow);background:transparent;color:var(--cyan)}.cta:hover{background:var(--glow);color:#02262a}
+.strip{border-block:1px solid var(--line);background:rgba(6,22,27,.85)}.strip .wrap{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:20px;padding-block:30px}
+.strip b{display:block;font:600 24px var(--head);color:var(--cyan)}.strip span{color:var(--slate);font-size:15px}
+.cc{border:1px solid var(--line);border-radius:18px;overflow:hidden;background:var(--abyss);display:flex;flex-direction:column}
+.art{height:170px;position:relative;overflow:hidden;background:radial-gradient(ellipse at 85% 0,#0b3a44,#02090d 70%);border-bottom:1px solid var(--line)}
+.art svg{width:100%;height:100%;display:block}
+.cb{padding:22px;display:flex;flex-direction:column;gap:12px;flex:1}.cb h3{font:600 19px var(--head);margin:0}.cb p{margin:0;color:#a9c6ca;font-size:15.5px}
+.meta{list-style:none;margin:0;padding:12px 0 0;border-top:1px solid var(--line);display:grid;gap:6px;font-size:14.5px;color:#bcd6d9}
+.meta li::before{content:"";display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--glow);margin-right:10px}
+.cb .btn{margin-top:auto;text-align:center}
+.fg{display:grid;grid-template-columns:repeat(auto-fit,minmax(310px,1fr));gap:18px}
+.f{display:flex;gap:16px;padding:22px;border:1px solid var(--line);border-radius:16px;background:linear-gradient(155deg,rgba(63,216,216,.07),transparent)}
+.f h3{font:600 18px var(--head);margin:0 0 6px}.f p{margin:0;color:#a9c6ca;font-size:15.5px}
+.ic{flex:none;width:46px;height:46px;border-radius:12px;background:rgba(63,216,216,.12);display:grid;place-items:center}
+.ic svg{width:24px;height:24px;stroke:var(--glow);fill:none;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:30px}
+.st{border-top:1px solid var(--glow);padding-top:16px}.st i{font:300 42px/1 var(--head);color:var(--glow);font-style:normal}.st h3{font:600 19px var(--head);margin:10px 0 6px}.st p{margin:0;color:#a9c6ca;font-size:15.5px}
+.cert{max-width:720px;margin:0 auto;padding:46px 28px;text-align:center;border-radius:18px;border:1px solid rgba(120,230,230,.4);outline:1px solid var(--line);outline-offset:-10px;background:radial-gradient(ellipse at 100% 0,rgba(63,216,216,.22),transparent 55%),#04141a}
+.ct{font:700 clamp(20px,3.4vw,30px) var(--head);letter-spacing:.03em}.cl{display:flex;justify-content:center;gap:10px;align-items:center;font:600 18px var(--head);margin:12px 0 22px;color:var(--cyan)}
+.cl i{width:16px;height:16px;border-radius:50%;background:radial-gradient(circle at 70% 30%,#d9ffff,#1fa9ae 55%,#06353f)}
+.cert p{margin:6px 0;color:var(--slate)}.cn{font:300 clamp(28px,5vw,42px) var(--head);margin:8px 0}.cc2{font:600 20px var(--head);color:var(--cyan)}
+.faq{max-width:760px}.faq details{border-bottom:1px solid var(--line);padding:18px 0}.faq summary{cursor:pointer;font:600 18px var(--head);list-style:none;display:flex;justify-content:space-between;gap:14px}
+.faq summary::after{content:"+";color:var(--glow);font-size:24px;line-height:1}.faq details[open] summary::after{content:"\2212"}.faq p{margin:12px 0 0;color:#a9c6ca}
+dialog{width:min(560px,92vw);max-height:88vh;overflow:auto;border:1px solid var(--line);border-radius:22px;background:var(--abyss);color:var(--frost);padding:30px;font:400 16px/1.6 var(--body)}
+dialog::backdrop{background:rgba(1,5,8,.78);backdrop-filter:blur(4px)}
+dialog h3{font:600 24px var(--head);margin:0 0 8px;padding-right:30px}dialog ul{padding-left:20px;color:#bcd6d9}dialog h4{font:600 16px var(--head);margin:18px 0 6px;color:var(--cyan)}
+.x{position:absolute;right:16px;top:12px;background:none;border:0;color:var(--frost);font-size:30px;cursor:pointer}
+
+.pill{display:inline-flex;align-items:center;gap:10px;padding:7px 16px;border-radius:999px;border:1px solid var(--line);background:rgba(6,22,27,.7);color:var(--cyan);font:500 14px var(--body);margin-bottom:26px;backdrop-filter:blur(6px)}
+.pill i{width:8px;height:8px;border-radius:50%;background:var(--glow);box-shadow:0 0 10px var(--glow)}
+.trust{display:flex;flex-wrap:wrap;gap:10px 26px;list-style:none;margin:34px 0 0;padding:0;color:#b2d0d4;font-size:15px}
+.trust li::before{content:"\2713";color:var(--glow);font-weight:700;margin-right:8px}
+.eyebrow{display:block;font:600 13px var(--body);letter-spacing:.16em;text-transform:uppercase;color:var(--glow);margin-bottom:12px}
+.alt{background:linear-gradient(180deg,transparent,rgba(6,22,27,.75) 20%,rgba(6,22,27,.75) 80%,transparent)}
+.cc{transition:transform .25s,border-color .25s,box-shadow .25s}.cc:hover{transform:translateY(-5px);border-color:rgba(63,216,216,.5);box-shadow:0 20px 50px rgba(0,0,0,.45),0 0 40px rgba(63,216,216,.08)}
+.badge{position:absolute;left:14px;top:14px;z-index:2;font:600 12.5px var(--body);padding:5px 12px;border-radius:999px;background:rgba(2,7,11,.78);border:1px solid var(--line);color:var(--cyan)}
+.chips{display:flex;flex-wrap:wrap;gap:8px;padding-top:14px;border-top:1px solid var(--line)}
+.chips span{font-size:13.5px;color:#bcd6d9;border:1px solid var(--line);border-radius:8px;padding:4px 10px;background:rgba(63,216,216,.05)}
+.paths{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:20px}
+.pth{padding:30px;border-radius:18px;border:1px solid var(--line);background:linear-gradient(155deg,rgba(63,216,216,.09),rgba(6,22,27,.7) 60%)}
+.pth h3{font:600 20px var(--head);margin:0 0 6px}.pth>p{margin:0 0 20px;color:#a9c6ca;font-size:15.5px}
+.pth ol{list-style:none;margin:0;padding:0;display:grid;gap:10px;counter-reset:s}
+.pth li{counter-increment:s;display:flex;gap:12px;align-items:center;font-size:15.5px}
+.pth li::before{content:counter(s);flex:none;width:28px;height:28px;border-radius:50%;display:grid;place-items:center;font:600 13px var(--head);color:#02262a;background:var(--glow)}
+.fcols{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:36px;text-align:left;padding-bottom:30px}
+.fcols h4{font:600 14px var(--head);letter-spacing:.1em;text-transform:uppercase;color:var(--cyan);margin:0 0 14px}
+.fcols a{display:block;text-decoration:none;color:var(--slate);margin-bottom:9px;font-size:15px}.fcols a:hover{color:var(--frost)}
+.fcols p{margin:12px 0 0;max-width:22em}
+.copy{border-top:1px solid var(--line);padding-top:22px;font-size:14px}
+@media(max-width:760px){.fcols{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs><radialGradient id="pg" cx=".78" cy=".28" r=".85"><stop offset="0" stop-color="#b4fbf8"/><stop offset=".3" stop-color="#35c3c6"/><stop offset=".6" stop-color="#0e6f7c"/><stop offset="1" stop-color="#021015"/></radialGradient></defs></svg>
+<header class="bar"><div class="wrap">
+  <a class="logo" href="#top"><i></i>URANUS</a>
+  <ul><li class="dd"><a href="#courses" aria-haspopup="true">Courses &#9662;</a><div id="ddl"></div></li><li><a href="#why">Why Uranus</a></li><li><a href="#path">How it works</a></li><li><a href="#faq">FAQ</a></li></ul>
+  <a class="cta" href="#contact">Get in Touch</a>
+</div></header>
+<div class="hero" id="top">
+  <div class="planet" aria-hidden="true"></div>
+  <canvas id="fx" aria-hidden="true"></canvas>
+  <svg class="terrain" viewBox="0 0 1440 300" preserveAspectRatio="none" aria-hidden="true">
+    <defs><linearGradient id="tg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#0b3a44"/><stop offset=".35" stop-color="#051b21"/><stop offset="1" stop-color="#02070b"/></linearGradient>
+    <linearGradient id="tl" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#3fd8d8" stop-opacity=".1"/><stop offset=".6" stop-color="#7ff0ee" stop-opacity=".9"/><stop offset="1" stop-color="#3fd8d8" stop-opacity=".3"/></linearGradient></defs>
+    <path d="M0 300V190L70 150l40 28 70-62 50 54 80-40 60 46 90-70 70 50 100-30 80 54 90-60 60 40 110-84 60 62 80-36 90 56 70-44 110-62 70 70 80-34 60 40V300Z" fill="url(#tg)"/>
+    <path d="M0 190L70 150l40 28 70-62 50 54 80-40 60 46 90-70 70 50 100-30 80 54 90-60 60 40 110-84 60 62 80-36 90 56 70-44 110-62 70 70 80-34 60 40" fill="none" stroke="url(#tl)" stroke-width="2"/>
+  </svg>
+  <div class="wrap">
+    <span class="pill in"><i></i>Live classes &middot; Recordings &middot; English &amp; Hindi</span>
+    <h1 class="in">Job-ready IT skills, taught from a <b>new angle.</b></h1>
+    <p class="lead in in2">Structured, project-based training in Python, web development, databases, data analysis and cybersecurity. Learn with expert guidance, build a portfolio employers can review, and get direct mentor support on WhatsApp.</p>
+    <div class="btns in in3">
+      <a class="btn wa" href="https://wa.me/918105670715?text=Hi%20Uranus%2C%20I%20want%20to%20know%20about%20your%20courses." target="_blank" rel="noopener">Chat on WhatsApp</a>
+      <a class="btn p" href="#courses">Explore courses</a>
+      <a class="btn o" href="https://mail.google.com/mail/?view=cm&to=mohammedyounus21786@gmail.com&su=Uranus%20course%20enquiry" target="_blank" rel="noopener">Email us</a>
+    </div>
+    <ul class="trust in in3"><li>Beginner friendly</li><li>Fee shared before you commit</li><li>Certificate on completion</li></ul>
+  </div>
+</div>
+<main>
+<div class="strip"><div class="wrap">
+ <div><b>6</b><span>Industry-relevant courses</span></div><div><b>Live + recorded</b><span>Flexible class access</span></div><div><b>English + Hindi</b><span>Learn in your language</span></div><div><b>Portfolio projects</b><span>In every course</span></div>
+</div></div>
+<section id="courses"><div class="wrap">
+  <span class="eyebrow">Courses</span><h2>Skills for the jobs that <b>are hiring</b></h2>
+  <p class="sub">Six focused courses built around real tools and real projects. Open any course to see the syllabus, level and duration.</p>
+  <div class="grid" id="cg"></div>
+</div></section>
+<section id="paths" class="alt"><div class="wrap">
+  <span class="eyebrow">Learning paths</span><h2>Not sure where to <b>start?</b></h2>
+  <p class="sub">Follow a recommended order for your goal, or message us and we will suggest one based on your background.</p>
+  <div class="paths">
+   <div class="pth"><h3>Complete beginner</h3><p>Start from zero and build a solid foundation.</p><ol><li>Python Programming</li><li>SQL and Databases</li><li>Git, GitHub and Deployment</li></ol></div>
+   <div class="pth"><h3>Aspiring web developer</h3><p>Go from basics to a deployed web application.</p><ol><li>Python Programming</li><li>Full-Stack Web Development</li><li>Git, GitHub and Deployment</li></ol></div>
+   <div class="pth"><h3>Data and security track</h3><p>Work with data or protect systems and applications.</p><ol><li>Python Programming</li><li>Data Analysis with Python</li><li>Cybersecurity Basics</li></ol></div>
+  </div>
+</div></section>
+<section id="why"><div class="wrap">
+  <span class="eyebrow">Why Uranus</span><h2>What makes Uranus the <b>right choice</b></h2>
+  <p class="sub">Uranus is the planet that rolls on its side. We teach the same way: a fresh angle that makes hard topics click.</p>
+  <div class="fg"><div class="f"><span class="ic"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="3"/><path d="M5 20c0-4 3-6 7-6s7 2 7 6"/></svg></span><div><h3>Skills employers ask for</h3><p>Courses focus on the tools used in real IT jobs, from Python to databases and deployment.</p></div></div><div class="f"><span class="ic"><svg viewBox="0 0 24 24"><path d="M4 5h16v10H9l-5 4z"/></svg></span><div><h3>Learn in English or Hindi</h3><p>Pick the language you are most comfortable in and learn at your own pace.</p></div></div><div class="f"><span class="ic"><svg viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M8 15l3-3 2 2 3-4"/></svg></span><div><h3>Portfolio and profile building</h3><p>Finish with projects on GitHub and a clear profile you can show to employers.</p></div></div><div class="f"><span class="ic"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/><path d="M12 8v8M9.5 10.5h4a1.5 1.5 0 0 1 0 3h-3"/></svg></span><div><h3>Fees explained upfront</h3><p>Message us and get the fee for your course before you commit to anything.</p></div></div><div class="f"><span class="ic"><svg viewBox="0 0 24 24"><path d="M5 6h14M5 12h14M5 18h9"/></svg></span><div><h3>Interview preparation</h3><p>Practice technical questions, resume review and mock interviews.</p></div></div><div class="f"><span class="ic"><svg viewBox="0 0 24 24"><path d="M8 8l-4 4 4 4M16 8l4 4-4 4M14 5l-4 14"/></svg></span><div><h3>Hands-on practice</h3><p>Short exercises after every lesson and projects at the end of every course.</p></div></div></div>
+</div></section>
+<section id="path" class="alt"><div class="wrap">
+  <span class="eyebrow">How it works</span><h2>From first message to <b>first job application</b></h2>
+  <p class="sub">Four steps from your first message to a portfolio you can show.</p>
+  <div class="steps"><div class="st"><i>1</i><h3>Choose a course</h3><p>Browse the courses and message us on WhatsApp or Gmail.</p></div><div class="st"><i>2</i><h3>Learn live</h3><p>Join live sessions and revisit the recordings whenever you need.</p></div><div class="st"><i>3</i><h3>Build projects</h3><p>Apply every topic in practical projects, with feedback.</p></div><div class="st"><i>4</i><h3>Prepare and showcase</h3><p>Polish your profile and practise for interviews.</p></div></div>
+</div></section>
+<section id="certificate"><div class="wrap">
+  <span class="eyebrow">Certification</span><h2>A certificate to <b>show your work</b></h2>
+  <p class="sub">Finish a course and its projects to receive a Uranus certificate of completion. This is a sample.</p>
+  <div class="cert"><div class="ct">Certificate of Completion</div><div class="cl"><i></i>URANUS</div><p>This is to certify that</p><div class="cn">Your Name</div><p>has successfully completed the course</p><div class="cc2">Full-Stack Web Development</div></div>
+</div></section>
+<section id="faq"><div class="wrap">
+  <span class="eyebrow">FAQ</span><h2>Common <b>questions</b></h2>
+  <p class="sub">Not listed here? Message us and we will reply personally.</p>
+  <div class="faq">
+   <details><summary>How do I join a course?</summary><p>Send us a message on WhatsApp or Gmail with the course you want. We reply with the schedule, fee and next steps.</p></details>
+   <details><summary>Are classes live or recorded?</summary><p>Both. You attend live sessions and can rewatch the recordings.</p></details>
+   <details><summary>Which languages do you teach in?</summary><p>English and Hindi.</p></details>
+   <details><summary>Do I need prior experience?</summary><p>No. Beginner courses start from zero. Each course page lists its level.</p></details>
+   <details><summary>Will I receive a certificate?</summary><p>Yes. Complete the course and its projects to receive a Uranus certificate of completion.</p></details>
+   <details><summary>What are the fees?</summary><p>Fees depend on the course. Message us for the current fee. We share it upfront, before you commit.</p></details>
+   <details><summary>Can I talk to someone before enrolling?</summary><p>Of course. Message us on WhatsApp or email and we will answer your questions and help you pick the right course.</p></details>
+  </div>
+</div></section>
+<section id="contact"><div class="wrap"><div class="panel">
+  <span class="eyebrow">Enquire</span><h2>Talk to our <b>team</b></h2>
+  <p class="sub" style="margin-bottom:0">Tell us your goal and level. We will recommend a course and share the schedule and fee. Your message opens in WhatsApp or Gmail, ready to send.</p>
+  <div class="row"><div><label for="n">Your name</label><input id="n" autocomplete="name"></div><div><label for="c">Course</label><select id="c"></select></div><div class="full"><label for="m">Message</label><textarea id="m" placeholder="Tell us your level and what you want to learn."></textarea></div></div>
+  <div class="btns"><button class="btn wa" id="wa" type="button">Send on WhatsApp</button><button class="btn p" id="gm" type="button">Send on Gmail</button></div>
+  <p class="direct">Direct: WhatsApp +91 8105670715 &nbsp;|&nbsp; Gmail mohammedyounus21786@gmail.com</p>
+</div></div></section>
+</main>
+<dialog id="dlg"><button class="x" id="dx" aria-label="Close">&times;</button><div id="db"></div></dialog>
+<footer><div class="wrap"><div class="fcols">
+<div><div class="logo" style="margin-bottom:4px"><i></i>URANUS</div><p>Practical, project-based IT courses for learners who want job-ready skills.</p></div>
+<div><h4>Courses</h4><a href="#course0">Python Programming</a><a href="#course1">Full-Stack Web Development</a><a href="#course2">SQL and Databases</a><a href="#course4">Data Analysis with Python</a></div>
+<div><h4>Contact</h4><a href="https://wa.me/918105670715" target="_blank" rel="noopener">WhatsApp +91 8105670715</a><a href="mailto:mohammedyounus21786@gmail.com">mohammedyounus21786@gmail.com</a><a href="#faq">FAQ</a></div>
+</div><div class="copy">&copy; Uranus. All rights reserved.</div></div></footer>
+<a class="fab" href="https://wa.me/918105670715?text=Hi%20Uranus%2C%20I%20want%20to%20know%20about%20your%20courses." target="_blank" rel="noopener" aria-label="Chat on WhatsApp"><svg viewBox="0 0 32 32"><path d="M16 3C9 3 3.3 8.6 3.3 15.5c0 2.4.7 4.7 2 6.6L3 29l7.1-2.2a13 13 0 0 0 5.9 1.4c7 0 12.7-5.6 12.7-12.6S23 3 16 3Zm0 23a10.7 10.7 0 0 1-5.5-1.5l-.4-.2-4.2 1.3 1.4-4-.3-.4A10 10 0 0 1 5.5 15.5C5.5 9.8 10.2 5.2 16 5.2s10.5 4.6 10.5 10.3S21.8 26 16 26Zm5.8-7.7c-.3-.2-1.9-.9-2.2-1-.3-.1-.5-.2-.7.2-.2.3-.8 1-1 1.2-.2.2-.4.2-.7.1a8.7 8.7 0 0 1-4.3-3.7c-.3-.6.3-.5.9-1.7.1-.2 0-.4 0-.5l-1-2.3c-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1.1 1-1.1 2.6s1.1 3 1.3 3.2c.2.2 2.2 3.3 5.3 4.6 2 .8 2.7.9 3.7.7.6-.1 1.9-.8 2.1-1.5.3-.7.3-1.4.2-1.5-.1-.1-.3-.2-.6-.4Z"/></svg></a>
+<script>
+(function(){
+  var hero=document.getElementById('top'),cv=document.getElementById('fx'),ctx=cv.getContext('2d'),P=[],W,H,line,dpr=Math.min(window.devicePixelRatio||1,2);
+  var still=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function setup(){
+    var r=hero.getBoundingClientRect();W=r.width;H=r.height;cv.width=W*dpr;cv.height=H*dpr;ctx.setTransform(dpr,0,0,dpr,0,0);
+    var pr=document.querySelector('.planet').getBoundingClientRect(),hr=hero.getBoundingClientRect();
+    var pcx=pr.left-hr.left+pr.width/2,pcy=pr.top-hr.top+pr.height/2,rad=pr.width/2;
+    line={x:pcx,y:pcy+rad*.32,a:-0.2};
+    var n=W<760?55:110;P=[];
+    for(var i=0;i<n;i++){var g=(Math.random()+Math.random()+Math.random()-1.5);
+      P.push({t:Math.random(),off:g*(60+Math.random()*60),s:1.5+Math.pow(Math.random(),3)*8,rot:Math.random()*6.28,v:.00004+Math.random()*.00008,sp:(Math.random()-.5)*.01,k:[0,1,2,3,4].map(function(){return .6+Math.random()*.6})});}
+  }
+  function pt(t,off){var len=W*1.3,dx=Math.cos(line.a),dy=Math.sin(line.a);var d=(t-.5)*len;return [line.x+dx*d-dy*off,line.y+dy*d+dx*off]}
+  function draw(){
+    ctx.clearRect(0,0,W,H);
+    var a=pt(0,0),b=pt(1,0),g=ctx.createLinearGradient(a[0],a[1],b[0],b[1]);
+    g.addColorStop(0,'rgba(190,210,214,0)');g.addColorStop(.35,'rgba(190,210,214,.35)');g.addColorStop(.7,'rgba(210,225,228,.5)');g.addColorStop(1,'rgba(190,210,214,0)');
+    ctx.strokeStyle=g;ctx.lineWidth=2.5;ctx.beginPath();ctx.moveTo(a[0],a[1]);ctx.lineTo(b[0],b[1]);ctx.stroke();
+    ctx.lineWidth=14;ctx.globalAlpha=.07;ctx.stroke();ctx.globalAlpha=1;
+    P.forEach(function(p){
+      if(!still){p.t+=p.v;if(p.t>1.05)p.t=-.05;p.rot+=p.sp}
+      var q=pt(p.t,p.off);ctx.save();ctx.translate(q[0],q[1]);ctx.rotate(p.rot);
+      ctx.beginPath();for(var i=0;i<5;i++){var an=i*1.2566,r=p.s*p.k[i];ctx[i?'lineTo':'moveTo'](Math.cos(an)*r,Math.sin(an)*r)}ctx.closePath();
+      ctx.fillStyle='#14191c';ctx.fill();ctx.strokeStyle='rgba(140,235,235,.55)';ctx.lineWidth=.8;ctx.stroke();ctx.restore();
+    });
+    if(!still)requestAnimationFrame(draw);
+  }
+  setup();draw();window.addEventListener('resize',function(){setup();if(still)draw()});
+})();
+function msg(){
+  var n=document.getElementById('n').value.trim()||'a learner',c=document.getElementById('c').value,m=document.getElementById('m').value.trim();
+  return 'Hi Uranus, my name is '+n+'. I am interested in: '+c+'.'+(m?'\n\n'+m:'');
+}
+document.getElementById('wa').onclick=function(){window.open('https://wa.me/918105670715?text='+encodeURIComponent(msg()),'_blank','noopener')};
+document.getElementById('gm').onclick=function(){window.open('https://mail.google.com/mail/?view=cm&to=mohammedyounus21786@gmail.com&su='+encodeURIComponent('Uranus course enquiry')+'&body='+encodeURIComponent(msg()),'_blank','noopener')};
+
+var COURSES=[
+{t:'Python Programming',d:'Learn Python from basics to automation scripts and small projects.',l:'Beginner',u:'2 Months',k:['Variables, loops and functions','Files and error handling','Modules and virtual environments','Object-oriented basics','Projects: quiz app and automation scripts']},
+{t:'Full-Stack Web Development',d:'Build and ship complete web apps with a front end, back end and database.',l:'Beginner to intermediate',u:'6 Months',k:['HTML, CSS and JavaScript','Python backend and APIs','Databases and authentication','Version control and deployment','Projects: a full web app for your portfolio']},
+{t:'SQL and Databases',d:'Design tables, write queries and connect a database to an application.',l:'Beginner',u:'6 Weeks',k:['Tables, keys and relationships','SELECT, JOIN and aggregation','Database design','SQLite with Python','Project: a data-backed application']},
+{t:'Git, GitHub and Deployment',d:'Version your code, work with others and put your projects online.',l:'All levels',u:'1 Month',k:['Git basics and branching','Pull requests and collaboration','GitHub profile and README','Hosting a site online']},
+{t:'Data Analysis with Python',d:'Clean data, find patterns and present results with clear charts.',l:'Intermediate',u:'3 Months',k:['NumPy and Pandas','Cleaning and transforming data','Charts and visual storytelling','Projects: analysis reports']},
+{t:'Cybersecurity Basics',d:'Understand common threats and how to protect apps, accounts and networks.',l:'Beginner',u:'2 Months',k:['How attacks work','Passwords, encryption and authentication','Securing web applications','Safe practice labs']}];
+
+/* course illustrations: teal space theme */
+var G='#3fd8d8',C='#b8f6f6',D='#04141a',SL='rgba(200,220,224,.7)';
+function S(px,py,pr,rot,inner){return '<svg viewBox="0 0 320 170" preserveAspectRatio="xMidYMid slice" fill="none" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="'+px+'" cy="'+py+'" r="'+pr+'" fill="url(#pg)"/><path d="M'+(px-pr*1.7)+' '+(py+pr*.3)+'L'+(px+pr*1.7)+' '+(py-pr*.3)+'" stroke="'+SL+'" stroke-width="1.5" transform="rotate('+rot+' '+px+' '+py+')"/><g fill="#fff" opacity=".7"><circle cx="20" cy="22" r="1"/><circle cx="120" cy="12" r="1.2"/><circle cx="210" cy="26" r="1"/><circle cx="300" cy="150" r="1"/><circle cx="30" cy="150" r="1.2"/></g>'+inner+'</svg>'}
+function box(x,y,w,h){return '<rect x="'+x+'" y="'+y+'" width="'+w+'" height="'+h+'" rx="9" fill="'+D+'" fill-opacity=".9" stroke="'+G+'" stroke-opacity=".6"/>'}
+function dots(x,y){return '<g fill="'+G+'"><circle cx="'+(x+12)+'" cy="'+(y+12)+'" r="3" opacity=".9"/><circle cx="'+(x+24)+'" cy="'+(y+12)+'" r="3" opacity=".6"/><circle cx="'+(x+36)+'" cy="'+(y+12)+'" r="3" opacity=".35"/></g>'}
+function tx(x,y,c,s){return '<text x="'+x+'" y="'+y+'" fill="'+c+'" font-family="ui-monospace,Menlo,Consolas,monospace" font-size="12.5">'+s+'</text>'}
+var ART=[
+ S(262,46,44,-12, box(34,26,190,120)+dots(34,26)+tx(48,66,G,'def')+tx(78,66,C,'greet(name):')+tx(62,88,'#7ff0ee','print(')+tx(110,88,C,'"Hello!"')+tx(48,116,'#7c9aa1','&gt;&gt;&gt; greet()')+tx(48,134,C,'Hello!')),
+ S(280,130,52,10, box(26,24,120,76)+'<path d="M26 44h120" stroke="'+G+'" stroke-opacity=".5"/><circle cx="38" cy="34" r="3" fill="'+G+'"/><rect x="38" y="54" width="54" height="8" rx="3" fill="'+G+'"/><rect x="38" y="68" width="92" height="5" rx="2.5" fill="'+C+'" opacity=".4"/><rect x="38" y="80" width="70" height="5" rx="2.5" fill="'+C+'" opacity=".4"/>'+box(188,22,76,32)+'<circle cx="202" cy="38" r="3.5" fill="'+G+'"/><path d="M214 38h38" stroke="'+C+'" stroke-opacity=".6"/>'+'<ellipse cx="226" cy="108" rx="28" ry="9" fill="'+D+'" stroke="'+G+'"/><path d="M198 108v26c0 5 12 9 28 9s28-4 28-9v-26" fill="'+D+'" stroke="'+G+'"/><path d="M198 121c0 5 12 9 28 9s28-4 28-9" stroke="'+G+'" stroke-opacity=".5"/><path d="M146 62h30l12-30M226 54v36M96 100v26h100" stroke="'+C+'" stroke-width="2" stroke-dasharray="4 5"/>'+tx(34,144,C,'UI')+tx(194,16,SL,'API')+tx(212,160,SL,'DB')),
+ S(60,40,40,8,'<ellipse cx="100" cy="52" rx="44" ry="13" fill="'+D+'" stroke="'+G+'"/><path d="M56 52v62c0 8 20 13 44 13s44-5 44-13V52" fill="'+D+'" fill-opacity=".92" stroke="'+G+'"/><path d="M56 78c0 8 20 13 44 13s44-5 44-13M56 104c0 8 20 13 44 13s44-5 44-13" stroke="'+G+'" stroke-opacity=".55"/>'+box(176,36,112,96)+'<path d="M176 60h112M176 84h112M176 108h112M212 36v96M252 36v96" stroke="'+G+'" stroke-opacity=".4"/><rect x="176" y="36" width="112" height="24" rx="9" fill="'+G+'" fill-opacity=".25"/>'+tx(184,52,C,'id')+tx(220,52,C,'name')+tx(258,52,C,'city')+tx(186,76,G,'1')+tx(186,100,G,'2')+tx(186,124,G,'3')+'<path d="M150 84h18M162 78l6 6-6 6" stroke="'+C+'" stroke-width="2.5"/>'),
+ S(262,128,46,-6,'<path d="M50 138V34M50 112c0-34 50-20 96-32s80-16 130-16M50 84c44 0 66 34 130 34h92" stroke="'+G+'" stroke-width="3" stroke-opacity=".8"/><g fill="'+D+'" stroke="'+C+'" stroke-width="3"><circle cx="50" cy="34" r="9"/><circle cx="50" cy="84" r="9"/><circle cx="50" cy="138" r="9"/><circle cx="146" cy="80" r="9"/><circle cx="210" cy="68" r="9"/><circle cx="180" cy="118" r="9"/><circle cx="276" cy="64" r="9"/></g><circle cx="276" cy="64" r="3.5" fill="'+G+'"/><circle cx="210" cy="68" r="3.5" fill="'+G+'"/>'+tx(66,28,SL,'main')+tx(190,148,SL,'feature')),
+ S(40,130,48,10, box(60,22,220,126)+'<g fill="'+G+'"><rect x="82" y="96" width="24" height="40" rx="3" opacity=".55"/><rect x="118" y="74" width="24" height="62" rx="3" opacity=".85"/><rect x="154" y="86" width="24" height="50" rx="3" opacity=".6"/><rect x="190" y="56" width="24" height="80" rx="3"/><rect x="226" y="68" width="24" height="68" rx="3" opacity=".7"/></g><path d="M82 82l36-24 36 12 36-28 36 8" stroke="'+C+'" stroke-width="2.5"/><g fill="'+C+'"><circle cx="118" cy="58" r="3.5"/><circle cx="190" cy="42" r="3.5"/><circle cx="262" cy="50" r="3.5"/></g>'),
+ S(60,40,38,-8,'<path d="M170 20l64 22v44c0 36-28 58-64 68-36-10-64-32-64-68V42z" fill="'+D+'" fill-opacity=".92" stroke="'+G+'" stroke-width="2"/><path d="M170 34l50 17v36c0 28-20 46-50 55-30-9-50-27-50-55V51z" fill="'+G+'" fill-opacity=".12" stroke="'+G+'" stroke-opacity=".5"/><rect x="152" y="84" width="36" height="30" rx="5" fill="'+G+'"/><path d="M158 84v-9a12 12 0 0 1 24 0v9" stroke="'+C+'" stroke-width="4"/><circle cx="170" cy="99" r="4" fill="'+D+'"/><path d="M262 60h34M250 90h46M262 120h30M24 80h40M30 112h34" stroke="'+G+'" stroke-opacity=".45"/>')
+];
+var WA='918105670715',GM='mohammedyounus21786@gmail.com';
+function esc(x){return x.replace(/&/g,'&amp;').replace(/</g,'&lt;')}
+var cg=document.getElementById('cg'),dd=document.getElementById('ddl'),sel=document.getElementById('c');
+COURSES.forEach(function(c,i){
+  cg.insertAdjacentHTML('beforeend','<article class="cc" id="course'+i+'"><div class="art" role="img" aria-label="'+esc(c.t)+' illustration"><span class="badge">'+c.l+'</span>'+ART[i]+'</div><div class="cb"><h3>'+esc(c.t)+'</h3><p>'+esc(c.d)+'</p><div class="chips"><span>'+c.u+'</span><span>Live + recorded</span><span>English + Hindi</span><span>Projects</span></div><button class="btn p" type="button" data-i="'+i+'">View syllabus</button></div></article>');
+  dd.insertAdjacentHTML('beforeend','<a href="#course'+i+'">'+esc(c.t)+'</a>');
+  sel.add(new Option(c.t));
+});
+sel.add(new Option('Not sure yet'));
+var dlg=document.getElementById('dlg'),db=document.getElementById('db');
+cg.addEventListener('click',function(e){
+  var b=e.target.closest('button[data-i]');if(!b)return;var c=COURSES[b.dataset.i];
+  var m=encodeURIComponent('Hi Uranus, I want to join: '+c.t+'. Please share the schedule and fees.');
+  db.innerHTML='<h3>'+esc(c.t)+'</h3><p style="color:#a9c6ca;margin:0">'+esc(c.d)+'</p><h4>Level and duration</h4><p style="margin:0">'+c.l+' | '+c.u+'</p><h4>What you will learn</h4><ul>'+c.k.map(function(k){return '<li>'+esc(k)+'</li>'}).join('')+'</ul><div class="btns" style="margin-top:22px"><a class="btn wa" target="_blank" rel="noopener" href="https://wa.me/'+WA+'?text='+m+'">Join on WhatsApp</a><a class="btn p" target="_blank" rel="noopener" href="https://mail.google.com/mail/?view=cm&to='+GM+'&su='+encodeURIComponent('Enquiry: '+c.t)+'&body='+m+'">Join on Gmail</a></div>';
+  dlg.showModal();
+});
+document.getElementById('dx').onclick=function(){dlg.close()};
+dlg.addEventListener('click',function(e){if(e.target===dlg)dlg.close()});
+</script>
+</body>
+</html>
